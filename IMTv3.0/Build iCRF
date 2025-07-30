@@ -1,0 +1,98 @@
+import React, { useState } from "react";
+
+function FullListMode({ data, onQCChange, filter, setFilter }) {
+  return (
+    <>
+      <table style={{ width: "100%", borderCollapse: "collapse", marginBottom: "1rem" }}>
+        <thead>
+          <tr style={{ backgroundColor: "#f2f2f2" }}>
+            <th style={{ border: "1px solid #ddd", padding: "8px", textAlign: "left" }}>
+              Participant<br />
+              <input
+                value={filter.participant || ''}
+                onChange={(e) => setFilter({ ...filter, participant: e.target.value })}
+                style={{ width: '100%' }}
+              />
+            </th>
+            <th style={{ border: "1px solid #ddd", padding: "8px", textAlign: "left" }}>
+              Visit<br />
+              <input
+                value={filter.visit || ''}
+                onChange={(e) => setFilter({ ...filter, visit: e.target.value })}
+                style={{ width: '100%' }}
+              />
+            </th>
+            <th style={{ border: "1px solid #ddd", padding: "8px", textAlign: "left" }}>
+              QC<br />
+              <select
+                value={filter.qc || ''}
+                onChange={(e) => setFilter({ ...filter, qc: e.target.value })}
+                style={{ width: '100%' }}
+              >
+                <option value="">All</option>
+                <option value="v1">v1</option>
+                <option value="v2">v2</option>
+                <option value="v3">v3</option>
+              </select>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.filter(item => {
+            return (!filter.participant || item.participant.includes(filter.participant)) &&
+                   (!filter.visit || item.visit.includes(filter.visit)) &&
+                   (!filter.qc || item.qc === filter.qc);
+          }).map((item, idx) => (
+            <tr key={idx}>
+              <td style={{ border: "1px solid #ddd", padding: "8px", color: "#800040", fontWeight: "bold" }}>{item.participant}</td>
+              <td style={{ border: "1px solid #ddd", padding: "8px" }}>{item.visit}</td>
+              <td style={{ border: "1px solid #ddd", padding: "8px" }}>
+                <select value={item.qc} onChange={(e) => onQCChange(idx, e.target.value)} style={{ padding: "4px", borderRadius: "4px" }}>
+                  <option value="v1">v1</option>
+                  <option value="v2">v2</option>
+                  <option value="v3">v3</option>
+                </select>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
+  );
+}
+
+export default function QCStatusDialog() {
+  const [data, setData] = useState([
+    { participant: "ABC1001", visit: "Baseline", qc: "v1" },
+    { participant: "ABC1001", visit: "Visit 1", qc: "v1" },
+    { participant: "ABC2001", visit: "Baseline", qc: "v1" },
+    { participant: "ABC2001", visit: "Visit 2", qc: "v2" },
+    { participant: "ABC3001", visit: "Visit 1", qc: "v3" },
+    { participant: "ABC3001", visit: "Visit 2", qc: "v1" }
+  ]);
+
+  const [filter, setFilter] = useState({ participant: '', visit: '', qc: '' });
+
+  const handleQCChange = (index, newQC) => {
+    const updated = [...data];
+    updated[index].qc = newQC;
+    setData(updated);
+  };
+
+  return (
+    <div style={{ maxWidth: "600px", margin: "2rem auto", border: "1px solid #ccc", borderRadius: "8px", padding: "1.5rem", fontFamily: "Arial, sans-serif" }}>
+      <h2 style={{ fontSize: "1.2rem", fontWeight: "bold", marginBottom: "0.5rem" }}>Released status</h2>
+      <h3 style={{ fontSize: "1rem", fontWeight: "bold", marginBottom: "1rem" }}>QC Version Manager</h3>
+
+      <div style={{ backgroundColor: "#e6f2ff", border: "1px solid #99c2ff", borderRadius: "4px", padding: "0.75rem", fontSize: "0.9rem", color: "#004085", marginBottom: "1rem" }}>
+        ℹ️ It will also apply to visits that will be uploaded in the future.
+      </div>
+
+      <FullListMode data={data} onQCChange={handleQCChange} filter={filter} setFilter={setFilter} />
+
+      <div style={{ marginTop: "1.5rem", textAlign: "right" }}>
+        <button style={{ padding: "0.5rem 1rem", border: "1px solid #ccc", borderRadius: "4px", backgroundColor: "#f9f9f9" }}>Save</button>
+      </div>
+    </div>
+  );
+}
