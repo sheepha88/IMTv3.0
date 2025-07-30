@@ -23,35 +23,27 @@ function FullListMode({ data, onQCChange, filter, setFilter }) {
               />
             </th>
             <th style={{ border: "1px solid #ddd", padding: "8px", textAlign: "left" }}>
-              QC<br />
-              <select
-                value={filter.qc || ''}
-                onChange={(e) => setFilter({ ...filter, qc: e.target.value })}
-                style={{ width: '100%' }}
-              >
-                <option value="">All</option>
-                <option value="v1">v1</option>
-                <option value="v2">v2</option>
-                <option value="v3">v3</option>
-              </select>
+              QC Version
+            </th>
+            <th style={{ border: "1px solid #ddd", padding: "8px", textAlign: "center" }}>
+              Select
             </th>
           </tr>
         </thead>
         <tbody>
           {data.filter(item => {
             return (!filter.participant || item.participant.includes(filter.participant)) &&
-                   (!filter.visit || item.visit.includes(filter.visit)) &&
-                   (!filter.qc || item.qc === filter.qc);
+                   (!filter.visit || item.visit.includes(filter.visit));
           }).map((item, idx) => (
             <tr key={idx}>
               <td style={{ border: "1px solid #ddd", padding: "8px", color: "#800040", fontWeight: "bold" }}>{item.participant}</td>
               <td style={{ border: "1px solid #ddd", padding: "8px" }}>{item.visit}</td>
-              <td style={{ border: "1px solid #ddd", padding: "8px" }}>
-                <select value={item.qc} onChange={(e) => onQCChange(idx, e.target.value)} style={{ padding: "4px", borderRadius: "4px" }}>
-                  <option value="v1">v1</option>
-                  <option value="v2">v2</option>
-                  <option value="v3">v3</option>
-                </select>
+              <td style={{ border: "1px solid #ddd", padding: "8px" }}>{item.qc}</td>
+              <td style={{ border: "1px solid #ddd", padding: "8px", textAlign: "center" }}>
+                <input 
+                  type="checkbox" 
+                  style={{ transform: "scale(1.2)" }}
+                />
               </td>
             </tr>
           ))}
