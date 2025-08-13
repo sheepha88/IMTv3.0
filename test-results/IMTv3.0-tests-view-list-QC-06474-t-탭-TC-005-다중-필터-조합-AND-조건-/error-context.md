@@ -1,0 +1,54 @@
+# Page snapshot
+
+```yaml
+- heading "Released status" [level=2]
+- heading "QC Version Manager" [level=3]
+- button "View List"
+- button "Add Row"
+- button "Transfer"
+- table:
+  - rowgroup:
+    - 'row "Participant 🔽 Select Participants: ABC1001 ABC2001 ABC3001 Clear All Visit 🔽 Select Visits: Baseline Visit 1 Visit 2 Clear All QC Version 🔽 Select QC Versions: v1 v2 v3 Clear All Select"':
+      - 'cell "Participant 🔽 Select Participants: ABC1001 ABC2001 ABC3001 Clear All"':
+        - text: Participant
+        - button "🔽"
+        - text: "Select Participants:"
+        - checkbox "ABC1001" [checked]
+        - text: ABC1001
+        - checkbox "ABC2001"
+        - text: ABC2001
+        - checkbox "ABC3001"
+        - text: ABC3001
+        - button "Clear All"
+      - 'cell "Visit 🔽 Select Visits: Baseline Visit 1 Visit 2 Clear All"':
+        - text: Visit
+        - button "🔽"
+        - text: "Select Visits:"
+        - checkbox "Baseline" [checked]
+        - text: Baseline
+        - checkbox "Visit 1"
+        - text: Visit 1
+        - checkbox "Visit 2"
+        - text: Visit 2
+        - button "Clear All"
+      - 'cell "QC Version 🔽 Select QC Versions: v1 v2 v3 Clear All"':
+        - text: QC Version
+        - button "🔽"
+        - text: "Select QC Versions:"
+        - checkbox "v1" [checked]
+        - text: v1
+        - checkbox "v2"
+        - text: v2
+        - checkbox "v3"
+        - text: v3
+        - button "Clear All"
+      - cell "Select"
+  - rowgroup:
+    - row "ABC1001 Baseline v1":
+      - cell "ABC1001"
+      - cell "Baseline"
+      - cell "v1"
+      - cell:
+        - checkbox
+- button "Save"
+```

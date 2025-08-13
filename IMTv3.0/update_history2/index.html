@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>업데이트 히스토리 아카이브</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📋 업데이트 히스토리 아카이브</h1>
+            <p>시스템 업데이트 내역을 체계적으로 관리하고 검색할 수 있습니다</p>
+        </header>
+
+        <div class="filters-section">
+            <div class="filter-group">
+                <label for="dateFilter">📅 날짜 필터:</label>
+                <select id="dateFilter">
+                    <option value="">모든 날짜</option>
+                    <option value="today">오늘</option>
+                    <option value="week">이번 주</option>
+                    <option value="month">이번 달</option>
+                    <option value="year">올해</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="categoryFilter">🏷️ 카테고리:</label>
+                <select id="categoryFilter">
+                    <option value="">모든 카테고리</option>
+                    <option value="feature">새 기능</option>
+                    <option value="bugfix">버그 수정</option>
+                    <option value="improvement">개선사항</option>
+                    <option value="security">보안</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="priorityFilter">⚡ 우선순위:</label>
+                <select id="priorityFilter">
+                    <option value="">모든 우선순위</option>
+                    <option value="high">높음</option>
+                    <option value="medium">보통</option>
+                    <option value="low">낮음</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="searchInput">🔍 검색:</label>
+                <input type="text" id="searchInput" placeholder="제목이나 내용을 검색하세요...">
+            </div>
+
+            <button id="clearFilters" class="clear-filters-btn">필터 초기화</button>
+        </div>
+
+        <div class="stats-section">
+            <div class="stat-item">
+                <span class="stat-number" id="totalUpdates">0</span>
+                <span class="stat-label">전체 업데이트</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="filteredUpdates">0</span>
+                <span class="stat-label">필터된 결과</span>
+            </div>
+        </div>
+
+        <main class="main-content">
+            <div id="updateList" class="update-list">
+                <!-- 업데이트 항목들이 여기에 동적으로 추가됩니다 -->
+            </div>
+        </main>
+    </div>
+
+    <!-- 모달 -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

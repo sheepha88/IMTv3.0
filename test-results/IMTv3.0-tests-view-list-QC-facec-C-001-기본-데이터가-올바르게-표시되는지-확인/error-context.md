@@ -1,0 +1,60 @@
+# Page snapshot
+
+```yaml
+- heading "Released status" [level=2]
+- heading "QC Version Manager" [level=3]
+- button "View List"
+- button "Add Row"
+- button "Transfer"
+- table:
+  - rowgroup:
+    - row "Participant 🔽 Visit 🔽 QC Version 🔽 Select":
+      - cell "Participant 🔽":
+        - text: Participant
+        - button "🔽"
+      - cell "Visit 🔽":
+        - text: Visit
+        - button "🔽"
+      - cell "QC Version 🔽":
+        - text: QC Version
+        - button "🔽"
+      - cell "Select"
+  - rowgroup:
+    - row "ABC1001 Baseline v1":
+      - cell "ABC1001"
+      - cell "Baseline"
+      - cell "v1"
+      - cell:
+        - checkbox
+    - row "ABC1001 Visit 1 v1":
+      - cell "ABC1001"
+      - cell "Visit 1"
+      - cell "v1"
+      - cell:
+        - checkbox
+    - row "ABC2001 Baseline v1":
+      - cell "ABC2001"
+      - cell "Baseline"
+      - cell "v1"
+      - cell:
+        - checkbox
+    - row "ABC2001 Visit 2 v2":
+      - cell "ABC2001"
+      - cell "Visit 2"
+      - cell "v2"
+      - cell:
+        - checkbox
+    - row "ABC3001 Visit 1 v3":
+      - cell "ABC3001"
+      - cell "Visit 1"
+      - cell "v3"
+      - cell:
+        - checkbox
+    - row "ABC3001 Visit 2 v1":
+      - cell "ABC3001"
+      - cell "Visit 2"
+      - cell "v1"
+      - cell:
+        - checkbox
+- button "Save"
+```

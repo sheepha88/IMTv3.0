@@ -1,0 +1,15 @@
+﻿{
+  "name": "react-template-imt",
+  "version": "1.0.0",
+  "description": "IMT React Project Template",
+  "main": "index.js",
+  "bin": {
+    "create-imt-react": "./bin/create.js"
+  },
+  "keywords": ["react", "template", "imt"],
+  "author": "Your Name",
+  "license": "MIT",
+  "files": [
+    "template/**/*"
+  ]
+}

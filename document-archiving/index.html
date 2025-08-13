@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document Archiving Prototype</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="app-title">Document Archiving Prototype</div>
+      <div class="app-user">
+        <label for="roleSelect">현재 역할</label>
+        <select id="roleSelect" title="역할 선택">
+          <option value="Admin">Admin</option>
+          <option value="Editor">Editor</option>
+          <option value="Viewer">Viewer</option>
+        </select>
+        <button id="resetDataBtn" class="btn btn-secondary" title="샘플 데이터를 처음 상태로 복원">데이터 초기화</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar">
+        <div class="section-header">
+          <div class="section-title">폴더</div>
+          <div class="section-actions">
+            <button id="addFolderBtn" class="btn btn-secondary">폴더 추가</button>
+            <button id="editFolderBtn" class="btn btn-secondary">폴더 수정</button>
+            <button id="deleteFolderBtn" class="btn btn-danger">폴더 삭제</button>
+          </div>
+        </div>
+        <div id="folderTree" class="folder-tree" aria-label="폴더 트리"></div>
+      </aside>
+
+      <section class="content">
+        <div class="toolbar">
+          <div class="toolbar-left">
+            <button id="uploadBtn" class="btn btn-primary">업로드</button>
+            <button id="moveBtn" class="btn btn-secondary">이동</button>
+            <button id="deleteFileBtn" class="btn btn-danger">삭제</button>
+            <button id="refreshBtn" class="btn btn-secondary">새로고침</button>
+          </div>
+          <div class="toolbar-right">
+            <input id="searchInput" type="search" placeholder="파일 검색" />
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="file-table" aria-label="파일 목록">
+            <thead>
+              <tr>
+                <th style="width: 32px"><input type="checkbox" id="selectAll" /></th>
+                <th>이름</th>
+                <th>형식</th>
+                <th>크기</th>
+                <th>업로드일</th>
+                <th>소유자</th>
+                <th>권한(보기/편집)</th>
+              </tr>
+            </thead>
+            <tbody id="fileTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="info-panel">
+        <div class="section-header">
+          <div class="section-title">정보</div>
+        </div>
+        <div id="infoPanel" class="info-panel-body"></div>
+      </section>
+    </main>
+
+    <!-- 업로드 다이얼로그 -->
+    <dialog id="uploadDialog" class="modal">
+      <form id="uploadForm" method="dialog">
+        <h3>파일 업로드</h3>
+        <p class="muted">선택된 폴더로 업로드됩니다.</p>
+        <div class="form-row">
+          <label>파일 선택</label>
+          <input id="fileInput" type="file" multiple />
+        </div>
+        <div class="form-row">
+          <label>보기 권한</label>
+          <div class="checkbox-group" id="viewRolesContainer"></div>
+        </div>
+        <div class="form-row">
+          <label>편집 권한</label>
+          <div class="checkbox-group" id="editRolesContainer"></div>
+        </div>
+        <div class="modal-actions">
+          <button value="cancel" class="btn btn-secondary">취소</button>
+          <button id="confirmUploadBtn" value="default" class="btn btn-primary">업로드</button>
+        </div>
+      </form>
+    </dialog>
+
+    <!-- 폴더 수정/추가 다이얼로그 -->
+    <dialog id="folderDialog" class="modal">
+      <form id="folderForm" method="dialog">
+        <h3 id="folderDialogTitle">폴더 정보</h3>
+        <div class="form-row">
+          <label for="folderNameInput">폴더 명</label>
+          <input id="folderNameInput" type="text" required />
+        </div>
+        <div class="form-row">
+          <label for="folderDescInput">설명</label>
+          <textarea id="folderDescInput" rows="3"></textarea>
+        </div>
+        <div class="form-row">
+          <label>업로드 권한 (이 폴더)</label>
+          <div class="checkbox-group" id="folderUploadRolesContainer"></div>
+        </div>
+        <div class="modal-actions">
+          <button value="cancel" class="btn btn-secondary">취소</button>
+          <button id="folderSaveBtn" value="default" class="btn btn-primary">저장</button>
+        </div>
+      </form>
+    </dialog>
+
+    <!-- 파일 이동 다이얼로그 -->
+    <dialog id="moveDialog" class="modal">
+      <form id="moveForm" method="dialog">
+        <h3>파일 이동</h3>
+        <div class="form-row">
+          <label for="moveFolderSelect">이동할 폴더</label>
+          <select id="moveFolderSelect"></select>
+        </div>
+        <div class="modal-actions">
+          <button value="cancel" class="btn btn-secondary">취소</button>
+          <button id="confirmMoveBtn" value="default" class="btn btn-primary">이동</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+  </html>
+

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Export Data - iCRF PDF Export</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Export Data</h1>
+        </header>
+
+        <main>
+            <!-- Data Setting Section -->
+            <section class="data-setting-section">
+                <h2>Data setting <span class="spec-ref">(1.1~1.5)</span></h2>
+                <div class="columns-container">
+                    <!-- Site Column -->
+                    <div class="data-column">
+                        <div class="column-header">
+                            <h3>✓ 6 items <span class="spec-ref">(2.1)</span></h3>
+                            <div class="search-container">
+                                <input type="text" placeholder="input search text" class="search-input">
+                                <i class="search-icon">🔍</i>
+                            </div>
+                        </div>
+                        <div class="column-content">
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="select-all" data-column="site">
+                                <span class="checkbox-label">Site <span class="spec-ref">(1.2)</span></span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="abc-hospital">
+                                <span class="checkbox-label">ABC Hospital</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="green-valley">
+                                <span class="checkbox-label">Green Valley Medical Cent</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="sunnydale">
+                                <span class="checkbox-label">Sunnydale Hospital</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="riverbend">
+                                <span class="checkbox-label">Riverbend Health Clinic</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="mountain-peak">
+                                <span class="checkbox-label">Mountain Peak Hospital</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="lakeside">
+                                <span class="checkbox-label">Lakeside Community Hosp</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Participant Column -->
+                    <div class="data-column">
+                        <div class="column-header">
+                            <h3>✓ 8 items <span class="spec-ref">(2.2)</span></h3>
+                            <div class="search-container">
+                                <input type="text" placeholder="input search text" class="search-input">
+                                <i class="search-icon">🔍</i>
+                            </div>
+                        </div>
+                        <div class="column-content">
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="select-all" data-column="participant">
+                                <span class="checkbox-label">Participant <span class="spec-ref">(1.2)</span></span>
+                            </label>
+                            <!-- Participant items will be dynamically loaded -->
+                        </div>
+                    </div>
+
+                    <!-- Visit Column -->
+                    <div class="data-column">
+                        <div class="column-header">
+                            <h3>✓ 7 items <span class="spec-ref">(2.3)</span></h3>
+                            <div class="search-container">
+                                <input type="text" placeholder="input search text" class="search-input">
+                                <i class="search-icon">🔍</i>
+                            </div>
+                        </div>
+                        <div class="column-content">
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="select-all" data-column="visit">
+                                <span class="checkbox-label">Visit <span class="spec-ref">(1.2)</span></span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="baseline">
+                                <span class="checkbox-label">Baseline</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="visit1">
+                                <span class="checkbox-label">Visit 1</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="visit2">
+                                <span class="checkbox-label">Visit 2</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="visit3">
+                                <span class="checkbox-label">Visit 3</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="usv1">
+                                <span class="checkbox-label">USV 1</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="eot">
+                                <span class="checkbox-label">EOT</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Form Column -->
+                    <div class="data-column">
+                        <div class="column-header">
+                            <h3>✓ 6 items <span class="spec-ref">(2.4)</span></h3>
+                            <div class="search-container">
+                                <input type="text" placeholder="input search text" class="search-input">
+                                <i class="search-icon">🔍</i>
+                            </div>
+                        </div>
+                        <div class="column-content">
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="select-all" data-column="form">
+                                <span class="checkbox-label">Form <span class="spec-ref">(1.2)</span></span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="image">
+                                <span class="checkbox-label">Image</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="monitoring">
+                                <span class="checkbox-label">Monitoring</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="qc">
+                                <span class="checkbox-label">QC</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="eligibility">
+                                <span class="checkbox-label">Eligibility</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="reader">
+                                <span class="checkbox-label">Reader</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" value="adjudicator">
+                                <span class="checkbox-label">Adjudicator</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Option Section -->
+            <section class="option-section">
+                <h2>Option <span class="spec-ref">(3.1~3.3)</span></h2>
+                <div class="option-checkboxes">
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="option-icrf" checked>
+                        <span class="checkbox-label">iCRF <span class="spec-ref">(3.1)</span></span>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="option-audit-trail" checked>
+                        <span class="checkbox-label">Audit trail <span class="spec-ref">(3.2)</span></span>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="option-query">
+                        <span class="checkbox-label">Query <span class="spec-ref">(3.3)</span></span>
+                    </label>
+                </div>
+            </section>
+
+            <!-- Export Button -->
+            <section class="export-section">
+                <button id="exportBtn" class="export-button" onclick="exportData()">
+                    Export <span class="spec-ref">(4.1)</span>
+                </button>
+            </section>
+
+            <!-- 기능명세서 Section -->
+            <section class="specification-section">
+                <div class="spec-header">
+                    <h2>📋 기능명세서</h2>
+                    <button id="toggleSpec" class="toggle-spec-btn" onclick="toggleSpecification()">
+                        <span class="toggle-text">접기</span>
+                        <span class="toggle-icon">▼</span>
+                    </button>
+                </div>
+                <div id="specContent" class="spec-content">
+                    <div class="spec-usage-guide">
+                        <h4>📖 사용법 안내</h4>
+                        <p>각 기능 옆에 표시된 <span class="spec-ref">(번호)</span>는 아래 기능명세서의 해당 번호와 매칭됩니다.</p>
+                        <p>예: <span class="spec-ref">(1.2)</span>는 "전체 선택/해제" 기능을 의미합니다.</p>
+                    </div>
+                    
+                    <div class="spec-group">
+                        <h3>1. Data Setting 기능</h3>
+                        <div class="spec-items">
+                            <div class="spec-item">
+                                <span class="spec-number">1.1</span>
+                                <span class="spec-title">4개 컬럼 레이아웃</span>
+                                <span class="spec-desc">Site, Participant, Visit, Form 컬럼으로 데이터 분류 - 현재 화면의 4개 컬럼 구조</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-number">1.2</span>
+                                <span class="spec-title">전체 선택/해제</span>
+                                <span class="spec-desc">각 컬럼의 첫 번째 체크박스로 해당 컬럼 전체 선택/해제 - Site, Participant, Visit, Form 라벨 옆의 체크박스</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-number">1.3</span>
+                                <span class="spec-title">개별 항목 선택</span>
+                                <span class="spec-desc">각 항목별로 개별 체크박스 선택 가능 - ABC Hospital, 김철수, Baseline, Image 등의 개별 체크박스</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-number">1.4</span>
+                                <span class="spec-title">실시간 검색</span>
+                                <span class="spec-desc">각 컬럼마다 "input search text" 검색창으로 항목 필터링 - 각 컬럼 상단의 검색 입력창</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-number">1.5</span>
+                                <span class="spec-title">아이템 수 표시</span>
+                                <span class="spec-desc">각 컬럼 헤더에 "✓ N items" 형태로 총 항목 수 표시 - 각 컬럼 상단의 "✓ 6 items", "✓ 8 items" 등</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spec-group">
+                        <h3>2. 데이터 구조</h3>
+                        <div class="spec-items">
+                            <div class="spec-item">
+                                <span class="spec-number">2.1</span>
+                                <span class="spec-title">Site 컬럼</span>
+                                <span class="spec-desc">6개 병원/클리닉 (ABC Hospital, Green Valley Medical Cent 등) - 첫 번째 컬럼의 "✓ 6 items" 표시</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-number">2.2</span>
+                                <span class="spec-title">Participant 컬럼</span>
+                                <span class="spec-desc">8명의 참가자 (김철수, 이영희, 박민수 등) - 두 번째 컬럼의 "✓ 8 items" 표시</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-number">2.3</span>
+                                <span class="spec-title">Visit 컬럼</span>
+                                <span class="spec-desc">7개 방문 단계 (Baseline, Visit 1-3, USV 1, EOT) - 세 번째 컬럼의 "✓ 7 items" 표시</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-number">2.4</span>
+                                <span class="spec-title">Form 컬럼</span>
+                                <span class="spec-desc">6개 폼 타입 (Image, Monitoring, QC, Eligibility, Reader, Adjudicator) - 네 번째 컬럼의 "✓ 6 items" 표시</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spec-group">
+                        <h3>3. Option 기능</h3>
+                        <div class="spec-items">
+                            <div class="spec-item">
+                                <span class="spec-number">3.1</span>
+                                <span class="spec-title">iCRF 옵션</span>
+                                <span class="spec-desc">기본 체크됨 - iCRF 데이터 포함 여부 - Option 섹션의 첫 번째 체크박스</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-number">3.2</span>
+                                <span class="spec-title">Audit trail 옵션</span>
+                                <span class="spec-desc">기본 체크됨 - 감사 추적 데이터 포함 여부 - Option 섹션의 두 번째 체크박스</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-number">3.3</span>
+                                <span class="spec-title">Query 옵션</span>
+                                <span class="spec-desc">체크 안됨 - 쿼리 데이터 포함 여부 - Option 섹션의 세 번째 체크박스</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spec-group">
+                        <h3>4. Export 기능</h3>
+                        <div class="spec-items">
+                            <div class="spec-item">
+                                <span class="spec-number">4.1</span>
+                                <span class="spec-title">Export 버튼</span>
+                                <span class="spec-desc">파란색 버튼으로 하단 중앙에 위치 - "Export" 텍스트가 있는 파란색 버튼</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-number">4.2</span>
+                                <span class="spec-title">데이터 검증</span>
+                                <span class="spec-desc">선택된 데이터가 없으면 경고 메시지 표시 - Export 버튼 클릭 시 데이터 미선택 시 경고</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-number">4.3</span>
+                                <span class="spec-title">로딩 모달</span>
+                                <span class="spec-desc">내보내기 진행 시 스피너와 메시지 표시 - Export 진행 중 나타나는 스피너 모달</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-number">4.4</span>
+                                <span class="spec-title">완료 알림</span>
+                                <span class="spec-desc">내보내기 완료 시 선택된 항목 수와 함께 알림 - Export 완료 후 나타나는 성공 메시지</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spec-group">
+                        <h3>5. 반응형 디자인</h3>
+                        <div class="spec-items">
+                            <div class="spec-item">
+                                <span class="spec-number">5.1</span>
+                                <span class="spec-title">데스크톱</span>
+                                <span class="spec-desc">4개 컬럼 가로 배치 (1400px 이상) - 현재 화면에서 보이는 4개 컬럼 가로 배치</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-number">5.2</span>
+                                <span class="spec-title">태블릿</span>
+                                <span class="spec-desc">2개 컬럼 배치 (768px-1200px) - 화면 크기 축소 시 2개 컬럼으로 변경</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-number">5.3</span>
+                                <span class="spec-title">모바일</span>
+                                <span class="spec-desc">1개 컬럼 세로 배치 (768px 이하) - 모바일 화면에서 1개 컬럼 세로 배치</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Loading Modal -->
+    <div id="loadingModal" class="modal">
+        <div class="modal-content">
+            <div class="spinner"></div>
+            <p id="loadingMessage">데이터를 내보내고 있습니다...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
